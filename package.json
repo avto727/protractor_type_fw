@@ -1,0 +1,38 @@
+{
+  "name": "protractor_example",
+  "version": "1.1.0",
+  "description": "An type Protractor project that makes use of page objects...",
+  "engines": {
+    "node": "6.11.3"
+  },
+  "scripts": {
+    "prepublish": "node_modules/.bin/webdriver-manager update",
+    "update": "node_modules/.bin/webdriver-manager update",
+    "test": "./flake conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/avto727.git"
+  },
+  "keywords": [
+    "protractor",
+    "page objects",
+    "tests",
+    "automation",
+    "webdriver"
+  ],
+  "author": "avto727",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avto727.git"
+  },
+  "homepage": "https://github.com/avto727.git",
+  "dependencies": {
+    "protractor": "5.1.1"
+  },
+  "devDependencies": {
+    "chance": "^0.7.5",
+    "jasmine-spec-reporter": "^2.4.0",
+    "protractor-flake": "2.4.0"
+  }
+}
