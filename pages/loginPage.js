@@ -1,3 +1,4 @@
+
 browser.ignoreSynchronization = true;
 var basePage = require('./basePage.js');
 
@@ -37,48 +38,33 @@ var LoginPage = function() {
         this.dict.loginButton.click();
     };
 
+    // browser.wait(function() {
+    //     return element(by.css("#edudrop1")).isPresent();});
+
     this.fillOrder = function() {
-        this.dict.Dedicated_Servers.click();
-        this.dict.Order_Dedicated_Servers.click();
-        // expect(this.dict.Order_now.isDisplayed()).toBe(true);
-        browser.sleep(2800);
-        this.dict.Order_now.click();
+        this.isClickWait(this.dict.Dedicated_Servers, '1');
+        this.isClickWait(this.dict.Order_Dedicated_Servers, '2');
+        this.isClickWait(this.dict.Order_now, '3');
+        browser.sleep(5000);
+        this.isClickWait(this.dict.check_box_OS, '4');
+        browser.sleep(5000);
+        this.hitPageDown();
         browser.sleep(2000);
+        this.isClickWait(this.dict.check_box_SSH, '5');
         this.hitPageDown();
-        browser.sleep(1000);
-        this.dict.check_box_OS.click();
-        // browser.sleep(1000);
+        this.isClickWait(this.dict.TB_SATA3_3_5, '6');
         this.hitPageDown();
-        browser.sleep(1000);
-        this.dict.check_box_SSH.click();
-        this.hitPageDown();
-        browser.sleep(1000);
-        this.dict.TB_SATA3_3_5.click();
-        // browser.sleep(1000);
-        // this.hitPageDown();
-        this.hitPageDown();
-        browser.sleep(1000);
-        this.dict.install_add_ons.click();
-        browser.sleep(1000);
-        this.dict.cPanel.click();
-        browser.sleep(1000);
-        this.dict.Centos.click();
-        browser.sleep(1000);
-        this.dict.Change.click();
-        browser.sleep(1000);
+        this.isClickWait(this.dict.install_add_ons, '7');
+        this.isClickWait(this.dict.cPanel, '8');
+        this.isClickWait(this.dict.Centos, '9');
+        this.isClickWait(this.dict.Change, '10');
         this.hitEnd();
-        // this.dict.input_hostname.sendKeys(protractor.Key.CLEAR);
-        // browser.sleep(1000);
-        this.dict.input_hostname.sendKeys('.com');
-        browser.sleep(500);
-        this.dict.Add_to_card.click();
-        browser.sleep(1000);
-        this.dict.Continue.click();
-        browser.sleep(1000);
+        this.isSendKeysWait(this.dict.input_hostname, '.com', '11');
+        this.isClickWait(this.dict.Add_to_card, '12');
+        this.isClickWait(this.dict.Continue, '13');
         this.hitHome();
-        this.dict.login_email.click();
-        browser.sleep(2000);
-        this.dict.logout.click();
+        this.isClickWait(this.dict.login_email, '14');
+        this.isClickWait(this.dict.logout, '15');
         browser.sleep(2000);
 
     };

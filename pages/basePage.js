@@ -30,6 +30,32 @@ var BasePage = function() {
      */
     var EC = protractor.ExpectedConditions;
 
+    this.isWait = function (elem) {
+        browser.driver.wait(function () {
+            browser.wait(EC.visibilityOf(elem), 15000);
+            return elem;
+        });
+    };
+
+    this.isSendKeysWait = function (elem, isText, step) {
+        browser.driver.wait(function () {
+            browser.wait(EC.visibilityOf(elem), 15000);
+            elem.sendKeys(isText);
+            console.log('Step ' + step + ' Send ');
+            return elem;
+        });
+    };
+
+    this.isClickWait = function (elem, step) {
+        browser.driver.wait(function () {
+            browser.wait(EC.visibilityOf(elem), 15000);
+            elem.click();
+            console.log('Step ' + step + ' Click ');
+            return elem;
+        });
+    };
+
+
     this.isVisible = function(locator) {
         return EC.visibilityOf(locator);
     };
