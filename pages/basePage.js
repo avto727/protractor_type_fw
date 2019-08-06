@@ -33,7 +33,6 @@ var BasePage = function() {
     this.isWait = function (elem) {
         browser.driver.wait(function () {
             browser.wait(EC.visibilityOf(elem), 15000);
-            return elem;
         });
     };
 
@@ -42,7 +41,6 @@ var BasePage = function() {
             browser.wait(EC.visibilityOf(elem), 15000);
             elem.sendKeys(isText);
             console.log('Step ' + step + ' Send ');
-            return elem;
         });
     };
 
