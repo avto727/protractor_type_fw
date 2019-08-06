@@ -36,23 +36,31 @@ var BasePage = function() {
         });
     };
 
+    // this.isSendKeysWait = function (elem, isText, step) {
+    //     browser.driver.wait(function () {
+    //         browser.wait(EC.visibilityOf(elem), 15000);
+    //         elem.sendKeys(isText);
+    //         console.log('Step ' + step + ' Send ');
+    //     });
+    // };
+
     this.isSendKeysWait = function (elem, isText, step) {
-        browser.driver.wait(function () {
-            browser.wait(EC.visibilityOf(elem), 15000);
-            elem.sendKeys(isText);
-            console.log('Step ' + step + ' Send ');
+        browser.wait(function() {
+            return elem.isPresent();
         });
+        console.log('Step ' + step + ' Click ');
+        browser.sleep(90);
+        elem.sendKeys(isText);
     };
 
-    this.isClickWait = function (elem, step) {
-        browser.driver.wait(function () {
-            browser.wait(EC.visibilityOf(elem), 15000);
-            elem.click();
-            console.log('Step ' + step + ' Click ');
-            return elem;
+        this.isClickWait = function (elem, step) {
+        browser.wait(function() {
+            return elem.isPresent();
         });
+        console.log('Step ' + step + ' Click ');
+        browser.sleep(90);
+        elem.click();
     };
-
 
     this.isVisible = function(locator) {
         return EC.visibilityOf(locator);
@@ -116,6 +124,10 @@ var BasePage = function() {
      */
     this.hitEnter = function() {
         return browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    };
+
+    this.hitBACK_SPACE = function() {
+        return browser.actions().sendKeys(protractor.Key.BACK_SPACE).perform();
     };
     /**
      * Webdriver equivilant to hitting PageDown/Return key.
