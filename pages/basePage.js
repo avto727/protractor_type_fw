@@ -1,10 +1,10 @@
 
 var BasePage = function() {
-    /**
-     * wait and verify that a page is loaded
-     * @returns {promise} 
-     * @requires a page to include `pageLoaded` method
-     */
+    //*
+    //  * wait and verify that a page is loaded
+    //  * @returns {promise}
+    //  * @requires a page to include `pageLoaded` method
+    //  */
     this.at = function() {
         return browser.wait(this.dict.pageLoaded(), this.timeout.xl);
     };
@@ -30,35 +30,37 @@ var BasePage = function() {
      */
     var EC = protractor.ExpectedConditions;
 
-    this.isWait = function (elem) {
-        browser.driver.wait(function () {
-            browser.wait(EC.visibilityOf(elem), 15000);
+    this.isWait = function (elem, step) {
+        browser.wait(function() {
+            return elem.isPresent();
         });
+        console.log('Step ' + step + ' Click ');
+        browser.sleep(200);
+        return elem;
     };
-
-    // this.isSendKeysWait = function (elem, isText, step) {
-    //     browser.driver.wait(function () {
-    //         browser.wait(EC.visibilityOf(elem), 15000);
-    //         elem.sendKeys(isText);
-    //         console.log('Step ' + step + ' Send ');
-    //     });
-    // };
 
     this.isSendKeysWait = function (elem, isText, step) {
         browser.wait(function() {
             return elem.isPresent();
         });
         console.log('Step ' + step + ' Click ');
-        browser.sleep(90);
+        browser.sleep(200);
         elem.sendKeys(isText);
     };
 
-        this.isClickWait = function (elem, step) {
+        this.isClickClickable = function (elem, step) {
+            browser.wait(EC.elementToBeClickable($(elem)), 15000);
+        console.log('Step ' + step + ' Click ');
+        browser.sleep(300);
+        elem.click();
+    };
+
+        this.isClickPresent = function (elem, step) {
         browser.wait(function() {
             return elem.isPresent();
         });
         console.log('Step ' + step + ' Click ');
-        browser.sleep(90);
+        browser.sleep(300);
         elem.click();
     };
 
