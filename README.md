@@ -10,7 +10,7 @@
 
 ## Setup:
 * Install [Node](http://nodejs.org) (v6.x.x or later)
-* `git clone https://github.com/qualityshepherd/protractor_example`
+* `git clone https://github.com/avto727/protractor_type_fw`
 * `npm install` to install the project dependencies
 * `node_modules/.bin/webdriver_manager update` to update drivers
 
