@@ -24,9 +24,9 @@
   "author": "avto727",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/avto727.git"
+    "url": "https://github.com/avto727/protractor_type_fw"
   },
-  "homepage": "https://github.com/avto727.git",
+  "homepage": "https://github.com/avto727/protractor_type_fw",
   "dependencies": {
     "protractor": "5.1.1"
   },
