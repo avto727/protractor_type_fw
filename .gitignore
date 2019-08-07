@@ -2,3 +2,5 @@
 /node_modules
 .DS_Store
 specs/test*
+package.json
+package-lock.json
