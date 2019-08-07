@@ -9,25 +9,25 @@ var BasePage = function() {
         return browser.wait(this.dict.pageLoaded(), this.timeout.xl);
     };
 
-    /**
-     * navigate to a page via it's `url` var
-     * and verify/wait via at()
-     * 
-     * @requires page have both `url` and `pageLoaded` properties
-     */
+    //**
+    //  * navigate to a page via it's `url` var
+    //  * and verify/wait via at()
+    //  *
+    //  * @requires page have both `url` and `pageLoaded` properties
+    //  */
     this.to = function() {
         browser.get(this.dict.url, this.timeout.xxl);
         return this.at();
     };
 
-    /**
-     * Wrappers for expected conditions
-     *
-     * I find ECs are generally poorly named, so we wrap them in
-     * methods that are 9% more sexy, and allow us to add logging, etc...
-     *
-     * @returns {ExpectedCondition}
-     */
+    // /**
+    //  * Wrappers for expected conditions
+    //  *
+    //  * I find ECs are generally poorly named, so we wrap them in
+    //  * methods that are 9% more sexy, and allow us to add logging, etc...
+    //  *
+    //  * @returns {ExpectedCondition}
+    //  */
     var EC = protractor.ExpectedConditions;
 
     this.isWait = function (elem, step) {
@@ -108,22 +108,22 @@ var BasePage = function() {
         'xxl': 15000
     };
 
-    /**
-     * test if an element has a class
-     * 
-     * @param  {elementFinder} locator - eg. $('div#myId')
-     * @param  {string}  klass  - class name
-     * @return {Boolean} - does the element have the class?
-     */
+    // /**
+    //  * test if an element has a class
+    //  *
+    //  * @param  {elementFinder} locator - eg. $('div#myId')
+    //  * @param  {string}  klass  - class name
+    //  * @return {Boolean} - does the element have the class?
+    //  */
     this.hasClass = function(locator, klass) {
         return locator.getAttribute('class').then(function(classes) {
             return classes.split(' ').indexOf(klass) !== -1;
         });
     };
 
-    /**
-     * Webdriver equivilant to hitting Enter/Return key.
-     */
+    // /**
+    //  * Webdriver equivilant to hitting Enter/Return key.
+    //  */
     this.hitEnter = function() {
         return browser.actions().sendKeys(protractor.Key.ENTER).perform();
     };
@@ -158,11 +158,11 @@ var BasePage = function() {
         return browser.actions().sendKeys(protractor.Key.CLEAR).perform();
     };
 
-    /**
-     * switches focus to a new window
-     * @param  {int} windowHandleIndex - the nth window to switch to
-     * @param  {pageObject} targetPage - the page we'll be on after the switch
-     */
+    // /**
+    //  * switches focus to a new window
+    //  * @param  {int} windowHandleIndex - the nth window to switch to
+    //  * @param  {pageObject} targetPage - the page we'll be on after the switch
+    //  */
     this.switchToWindow = function(windowHandleIndex, targetPage) {
         var that = this;
         // wait for new page to open...
