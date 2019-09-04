@@ -1,3 +1,4 @@
+const promise = require('promise');
 
 var BasePage = function() {
     //*
@@ -44,7 +45,7 @@ var BasePage = function() {
             return elem.isPresent();
         });
         console.log('Step ' + step + ' Click ');
-        browser.sleep(200);
+        browser.sleep(300);
         elem.sendKeys(isText);
     };
 

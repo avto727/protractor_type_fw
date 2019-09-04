@@ -6,13 +6,18 @@ var userData = require('../data/userData');
 
 describe ('angular app', function() {
 
-    it('login at site + fill order', function() {
+    it('login at site', function() {
         loginPage.to();
         browser.driver.manage().window().maximize();
         loginPage.loginAs(userData.testUser);
         // expect(loginPage.dict.login_email.isDisplayed()).toBe(true);
-        loginPage.fillOrder();
     });
+    it('fill order', function() {
+        loginPage.fillProfile();
+    });
+    // it('fill order', function() {
+    //     loginPage.fillOrder();
+    // });
 
     // it('should to fill order', function() {
         // expect(friendPage.inResults('Paul')).toBeFalsy();

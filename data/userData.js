@@ -1,6 +1,6 @@
 
 // store user data in object for ease of use and readability...
 var UserData = {
-    testUser : {'username': 'ask_ev_avto727@mail.ru', 'password': '9367ccdfb86a'},
+    testUser : {'username': 'bodrey@inbox.ru', 'password': '02c014bac753'},
 };
 module.exports = UserData;
