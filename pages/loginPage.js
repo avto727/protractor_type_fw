@@ -33,18 +33,22 @@ var LoginPage = function() {
             // deleteOrder:$('#root > react-ui-view-adapter > div > div > div.Content-sc-1av4hia-0.eDWmeO > ui-view > div > div.panel-body > div > div:nth-child(2) > form > table > tbody > tr:nth-child(1) > td.text-right.cart-table-actions > a.btn.btn-sm.btn-danger'),
             deleteOrder: $('#root > react-ui-view-adapter > div > div > div.Content-sc-1av4hia-0.eDWmeO > ui-view > div > div.panel-body > div > div:nth-child(2) > form > table > tbody > tr:nth-child(1) > td.text-right.cart-table-actions > a.btn.btn-sm.btn-danger > i'),
             buttonProfile: $('#root > react-ui-view-adapter > div > div > div.Content-sc-1av4hia-0.eDWmeO > div.Navbar-ac33sw-0.ijTAFs > nav > div > div > ul > li:nth-child(1) > a > span'),
-            editProfile: element(by.className('Button-vgqsk2-0 izyoYV IconButton-sc-1ev67nd-0 FAGyS')),
+            editProfile: element(by.className('Button-vgqsk2-0 izyoYV IconButton-sc-1ev67nd-0 jOICwi')),
             cartEmpty: element(by.xpath('.//i[@class="fa fa-info-circle"]')),
             fieldFirstName: element(by.name('fname')),
             fieldLastName: element(by.name('lname')),
             fieldPhoneNumber: element(by.name('phone_number')),
             dropCountry: element(by.className('css-16pqwjk-indicatorContainer select__indicator select__dropdown-indicator')),
-            billingCountry: element(by.name('billing_address_country')),
+            // billingCountry: element(by.name('billing_address_country')),
+            billingCountry: element(by.xpath('.//input[@name="billing_address_country"]')),
+            selectCountry: element(by.xpath('.//div[@class="css-5mz1tj-menu select__menu"]')),
+            fieldBilCountry: element(by.id('react-select-2-input')),
+
             billingAddressCity: element(by.name('billing_address_city')),
             billingAddressPostalcode: element(by.name('billing_address_postalcode')),
             billingAddressRegion: element(by.name('billing_address_region')),
             billingAddressStreet: element(by.name('billing_address_street')),
-            submitSaveProfile: element(by.className('Button-vgqsk2-0 izyoYV IconButton-sc-1ev67nd-0 ewEJHk')),
+            submitSaveProfile: element(by.xpath('.//footer//button[@class="Button-vgqsk2-0 izyoYV IconButton-sc-1ev67nd-0 ewEJHk"]//span')),
 
     };
 
@@ -66,14 +70,12 @@ var LoginPage = function() {
         this.isClickPresent(this.dict.login_email, '1');
         this.isClickPresent(this.dict.buttonProfile, '2');
         this.isClickPresent(this.dict.editProfile, '3');
-        // browser.sleep(500);
         this.isSendKeysWait(this.dict.fieldFirstName, 'Better_tester', '4');
         this.isSendKeysWait(this.dict.fieldLastName, 'Best_tester', '5');
         this.isSendKeysWait(this.dict.fieldPhoneNumber, '+79998154035', '6');
-        // this.isClickPresent(this.dict.dropCountry, '7');
-        // browser.sleep(1000);
-        // element(by.className('SelectSingleValue-sc-16im77q-0 AUqAs SelectOption-jh2lpt-0 ccMwNU')).click();
-        // this.isSendKeysWait(this.dict.billingCountry, 'Russia', '8');
+        this.isClickPresent(this.dict.dropCountry, '7');
+        this.isSendKeysWait(this.dict.fieldBilCountry, 'Albania', '8');
+        this.isClickPresent(this.dict.selectCountry, '8');
         this.isSendKeysWait(this.dict.billingAddressCity, 'Moscow', '9');
         this.isSendKeysWait(this.dict.billingAddressPostalcode, '127000', '10');
         this.isSendKeysWait(this.dict.billingAddressRegion, 'Moscow', '11');
@@ -81,7 +83,8 @@ var LoginPage = function() {
         this.isClickPresent(this.dict.submitSaveProfile, '13');
 
 
-    }
+
+    };
 
 
 

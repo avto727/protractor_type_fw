@@ -15,9 +15,10 @@ describe ('angular app', function() {
     it('fill order', function() {
         loginPage.fillProfile();
     });
-    // it('fill order', function() {
-    //     loginPage.fillOrder();
-    // });
+
+    it('fill order', function() {
+        loginPage.fillOrder();
+    });
 
     // it('should to fill order', function() {
         // expect(friendPage.inResults('Paul')).toBeFalsy();
