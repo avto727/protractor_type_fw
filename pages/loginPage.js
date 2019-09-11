@@ -14,7 +14,7 @@ var LoginPage = function() {
             // login_email: $('#root > react-ui-view-adapter > div > div > div.Content-sc-1av4hia-0.eDWmeO > div > nav > div > div > button > span'),
             login_email: $('div.Content-sc-1av4hia-0.eDWmeO button>span'),
             pageLoaded: this.and(this.isVisible($('div#page'))),
-            Dedicated_Servers: $('.Sidebar-sc-1wlrrwl-0'),
+            Dedicated_Servers: $('.MenuIcon-sc-18mmsgf-0.fa.fa-hdd-o.cFmgdn'),
             Order_Dedicated_Servers: $('a[href="#/servers/order"]'),
             // Order_now:element(by.buttonText('Order now')),
             Order_now: $('tbody .ng-scope:nth-child(1)>td>h4'),
@@ -96,26 +96,30 @@ var LoginPage = function() {
 
 
     this.fillOrder = async function() {
-        await this.isClickPresent(this.dict.Dedicated_Servers, '1');
-        await this.isClickPresent(this.dict.Order_Dedicated_Servers, '2');
-        this.isClickPresent(this.dict.Order_now, '3', 0);
-        this.hitPageDown();
-        this.isClickPresent(this.dict.check_box_OS, '4');
-        this.hitPageDown();
-        this.isClickPresent(this.dict.check_box_SSH, '5');
-        this.hitPageDown();
-        this.isClickPresent(this.dict.TB_SATA3_3_5, '6');
-        this.hitPageDown();
-        this.isClickPresent(this.dict.install_add_ons, '7');
-        this.isClickPresent(this.dict.cPanel, '8');
-        this.isClickPresent(this.dict.Centos, '9');
-        this.isClickPresent(this.dict.Change, '10');
-        browser.sleep(300);
-        this.hitEnd();
-        this.isClickPresent(this.dict.input_hostname, '10');
-        this.isSendKeysWait(this.dict.input_hostname, 'a.com', '11');
-        this.isClickPresent(this.dict.Add_to_card, '12');
-        this.isClickPresent(this.dict.Continue, '13');
+        await this.isClickPresent(await this.dict.Dedicated_Servers, '1');
+        await this.isClickPresent(await this.dict.Order_Dedicated_Servers, '2');
+        await this.isClickPresent(await this.dict.Order_now, '3', 0);
+        await this.hitPageDown();
+        await this.hitPageDown();
+        await this.isClickPresent(this.dict.check_box_OS, '4');
+        await this.hitPageDown();
+        await this.isClickPresent(this.dict.check_box_SSH, '5');
+
+        await this.hitPageDown();
+        await this.isClickPresent(await this.dict.TB_SATA3_3_5, '6');
+        await this.hitPageDown();
+        await this.isClickPresent(this.dict.install_add_ons, '7');
+        await this.isClickPresent(this.dict.cPanel, '8');
+        await this.isClickPresent(this.dict.Centos, '9');
+        await this.isClickPresent(this.dict.Change, '10');
+        await browser.sleep(300);
+        await this.hitEnd();
+        await browser.sleep(300);
+        await this.isClickPresent(await this.dict.input_hostname, '10');
+        await this.isSendKeysWait(this.dict.input_hostname, 'a.com', '11');
+        await this.isClickPresent(this.dict.Add_to_card, '12');
+        await this.isClickPresent(this.dict.Continue, '13');
+
         // this.hitHome();
         // this.isClickPresent(this.dict.deleteOrder, '15');
         // this.isClickPresent(this.dict.confirmDelete, '15');

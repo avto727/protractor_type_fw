@@ -61,7 +61,7 @@ var BasePage = function() {
             return elem.isPresent();
         });
         console.log('Step ' + step + ' Click ');
-        browser.sleep(300);
+        browser.sleep(500);
         elem.click();
     };
 

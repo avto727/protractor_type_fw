@@ -10,11 +10,11 @@ describe ('angular app', function() {
         loginPage.to();
         browser.driver.manage().window().maximize();
         loginPage.loginAs(userData.testUser);
-        // expect(loginPage.dict.login_email.isDisplayed()).toBe(true);
+        expect(loginPage.dict.login_email.isDisplayed()).toBe(true);
     });
-    it('fill order', function() {
-        loginPage.fillProfile();
-    });
+    // it('fill order', function() {
+    //     loginPage.fillProfile();
+    // });
 
     it('fill order', function() {
         loginPage.fillOrder();
